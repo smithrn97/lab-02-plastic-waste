@@ -50,7 +50,7 @@ I changed the alpha level to 0.3.
 
 ### Exercise 4
 
-We defined color and fill by mapping aesthetics because we wanted to adjust the way that the continents were displayed on the graph. We defined alpha as a characteristic of the plotting geom because we wanted to adjust the overall display of the histogram.
+We defined color and fill by mapping aesthetics because because these determinations are made based on variables in the data. We defined alpha as a characteristic of the plotting geom because this determination was not based on the values or variables in the data.
 
 ```{r plastic-waste-violin}
 ggplot (data = plastic_waste, mapping = aes (x=continent, y = plastic_waste_per_cap)) +
@@ -94,5 +94,8 @@ ggplot (data = plastic_waste, aes (x = coastal_pop, y = plastic_waste_per_cap, c
 The relationship between coastal population and plastic waste per capita appears to be more strongly linearly associated. 
 
 ```{r recreate-viz}
-# insert code here
+ggplot (data = plastic_waste, aes (x = coastal_pop / total_pop, y = plastic_waste_per_cap, color = continent))+
+  geom_point()+
+  stat_smooth()
 ```
+This is as close as I could get to the visualization of plastic waste vs. coastal population proportion. It would appear that, as the coastal population reaches the same amount as the total population (in terms of the proportion), there is the most plastic waste per capita. 
