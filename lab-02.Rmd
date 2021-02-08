@@ -17,27 +17,40 @@ plastic_waste <- read_csv("data/plastic-waste.csv")
 
 ## Exercises
 
+```{r dist-per-cap}
+ggplot(data = plastic_waste, aes(x = plastic_waste_per_cap)) +
+  geom_histogram(binwidth = 0.2)
+```
+```{r filter_waste_per_cap}
+plastic_waste %>%
+  filter(plastic_waste_per_cap > 3.5)
+```
 ### Exercise 1
 
-Remove this text, and add your answer for Exercise 1 here.
+Based on these histograms, North America appears to have the most plastic waste per capita whereas South America appears to have the lowest amount of plastic waste per capita.
 
 ```{r plastic-waste-continent}
-# insert code here
+ggplot (data = plastic_waste, aes (x = plastic_waste_per_cap))+
+  geom_histogram(binwidth = .25)+
+  facet_wrap(~continent)
 ```
 
 ### Exercise 2
 
 ```{r plastic-waste-density}
-# insert code here
+ggplot(data = plastic_waste, 
+       mapping = aes(x = plastic_waste_per_cap, color = continent, fill = continent)) + 
+  geom_density(alpha = 0.3)
+
 ```
 
 ### Exercise 3
 
-Remove this text, and add your answer for Exercise 3 here.
+I changed the alpha level to 0.3.
 
 ### Exercise 4
 
-Remove this text, and add your answer for Exercise 4 here.
+We defined color and fill by mapping aesthetics because we wanted to adjust the way that the continents were displayed on the graph. We defined alpha as a characteristic of the plotting geom because we wanted to adjust the overall display of the histogram.
 
 ```{r plastic-waste-violin}
 # insert code here
