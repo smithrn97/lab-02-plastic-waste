@@ -53,40 +53,45 @@ I changed the alpha level to 0.3.
 We defined color and fill by mapping aesthetics because we wanted to adjust the way that the continents were displayed on the graph. We defined alpha as a characteristic of the plotting geom because we wanted to adjust the overall display of the histogram.
 
 ```{r plastic-waste-violin}
-# insert code here
+ggplot (data = plastic_waste, mapping = aes (x=continent, y = plastic_waste_per_cap)) +
+  geom_violin()
 ```
 
 ### Exercise 5
 
-Remove this text, and add your answer for Exercise 5 here.
+The violin plots display the distributions a bit better. We can clearly see the outliers in this visualization. The different shapes of the violins also allows us to have a better grasp of what the distribution looks like per continent. With the boxplots, we can see how the data is differentiated into quartiles. 
 
 ```{r plastic-waste-mismanaged}
-# insert code here
+ggplot (data = plastic_waste, aes (x = plastic_waste_per_cap, y = mismanaged_plastic_waste_per_cap))+
+  geom_point()
 ```
 
 ### Exercise 6
 
-Remove this text, and add your answer for Exercise 6 here.
+The scatterplot shows a moderately positive relationship between plastic waste per capita and mismanaged plastic waste per capita. That is, the more plastic waste there is, the more mismanaged the waste becomes.
 
 ```{r plastic-waste-mismanaged-continent}
-# insert code here
+ggplot (data = plastic_waste, aes (x = plastic_waste_per_cap, y = mismanaged_plastic_waste_per_cap, color = continent)) +
+  geom_point()
 ```
 
 ### Exercise 7
 
-Remove this text, and add your answer for Exercise 7 here.
+The two clearest distinctions are the outliers for Asia and Oceania. However, even with the most plastic waste, Oceania's mismanagement of it is less than that of Asia. 
 
 ```{r plastic-waste-population-total}
-# insert code here
+ggplot (data = plastic_waste, aes (x = total_pop, y = plastic_waste_per_cap, color = continent) ) +
+  geom_point()
 ```
 
 ```{r plastic-waste-population-coastal}
-# insert code here
+ggplot (data = plastic_waste, aes (x = coastal_pop, y = plastic_waste_per_cap, color = continent)) +
+  geom_point()
 ```
 
 ### Exercise 8
 
-Remove this text, and add your answer for Exercise 8 here.
+The relationship between coastal population and plastic waste per capita appears to be more strongly linearly associated. 
 
 ```{r recreate-viz}
 # insert code here
